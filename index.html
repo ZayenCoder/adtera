@@ -3,47 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exclusive Offer!</title>
+<title>Exclusive Offers!</title>
 <style>
     /* Body style */
     body {
         margin: 0;
         font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #f06, #f79);
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        min-height: 100vh;
         color: #fff;
         text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
     }
 
-    /* Card container */
+    /* Container Card */
     .card {
-        background: rgba(0,0,0,0.6);
-        padding: 50px 30px;
+        background: rgba(0,0,0,0.7);
+        padding: 40px 30px;
         border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        max-width: 400px;
-        width: 90%;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        max-width: 500px;
+        width: 100%;
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 2.2em;
         margin-bottom: 20px;
     }
 
     p {
         font-size: 1.1em;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
-    /* Button style */
+    /* Button Grid */
+    .btn-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    /* Buttons */
     .btn {
         background: #ffdd00;
         color: #000;
-        padding: 15px 30px;
-        font-size: 1.2em;
+        padding: 15px 20px;
+        font-size: 1.1em;
         font-weight: bold;
         border: none;
         border-radius: 50px;
@@ -60,22 +69,42 @@
 
     /* Footer */
     footer {
-        position: absolute;
-        bottom: 20px;
-        font-size: 0.8em;
+        margin-top: 30px;
+        font-size: 0.85em;
         color: rgba(255,255,255,0.7);
+    }
+
+    /* Responsive Text */
+    @media(max-width: 480px){
+        h1 {
+            font-size: 1.8em;
+        }
+        p {
+            font-size: 1em;
+        }
+        .btn {
+            font-size: 1em;
+            padding: 12px 15px;
+        }
     }
 </style>
 </head>
 <body>
 
 <div class="card">
-    <h1>Don't Miss This!</h1>
-    <p>Click the button below to claim your exclusive reward!</p>
-    <a href="https://www.effectivegatecpm.com/nbdew3qhqw?key=f8c3ff33cf224df228052d7d73f05580" target="_blank" class="btn">Claim Now</a>
-</div>
+    <h1>🔥 Exclusive Offers!</h1>
+    <p>Click any offer below to claim your reward!</p>
+    
+    <div class="btn-container">
+        <a href="https://www.effectivegatecpm.com/nbdew3qhqw?key=f8c3ff33cf224df228052d7d73f05580" target="_blank" class="btn">Offer 1</a>
+        <a href="https://www.effectivegatecpm.com/nbdew3qhqw?key=f8c3ff33cf224df228052d7d73f05580" target="_blank" class="btn">Offer 2</a>
+        <a href="https://www.effectivegatecpm.com/nbdew3qhqw?key=f8c3ff33cf224df228052d7d73f05580" target="_blank" class="btn">Offer 3</a>
+        <a href="https://www.effectivegatecpm.com/nbdew3qhqw?key=f8c3ff33cf224df228052d7d73f05580" target="_blank" class="btn">Offer 4</a>
+        <a href="https://www.effectivegatecpm.com/nbdew3qhqw?key=f8c3ff33cf224df228052d7d73f05580" target="_blank" class="btn">Offer 5</a>
+    </div>
 
-<footer>© 2026 YourSiteName. All rights reserved.</footer>
+    <footer>© 2026 YourSiteName. All rights reserved.</footer>
+</div>
 
 </body>
 </html>
