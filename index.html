@@ -1,110 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exclusive Offers!</title>
-<style>
-    /* Body style */
-    body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #6a11cb, #2575fc);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        color: #fff;
-        text-align: center;
-        padding: 20px;
-        box-sizing: border-box;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive offers · live clicks</title>
+  <!-- Font Awesome 6 (free) icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     }
 
-    /* Container Card */
-    .card {
-        background: rgba(0,0,0,0.7);
-        padding: 40px 30px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-        max-width: 500px;
-        width: 100%;
+    body {
+      min-height: 100vh;
+      background: linear-gradient(145deg, #1a0b2e 0%, #1f3a5f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    /* main glassmorphic card */
+    .offer-card {
+      background: rgba(18, 20, 28, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 215, 0, 0.25);
+      border-radius: 2.5rem;
+      padding: 2.5rem 2rem;
+      max-width: 750px;
+      width: 100%;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 2px rgba(255, 220, 50, 0.1) inset;
+      transition: all 0.2s;
     }
 
     h1 {
-        font-size: 2.2em;
-        margin-bottom: 20px;
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(135deg, #ffe894, #ffd966);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    p {
-        font-size: 1.1em;
-        margin-bottom: 30px;
+    h1 i {
+      background: rgba(255, 215, 0, 0.2);
+      padding: 12px;
+      border-radius: 60px;
+      font-size: 2rem;
+      color: #fd0;
+      -webkit-text-fill-color: #fd0;
+      box-shadow: 0 0 15px #ffbb00;
     }
 
-    /* Button Grid */
-    .btn-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
+    .sub-head {
+      font-size: 1.2rem;
+      color: #c0caf5;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-bottom: 1px dashed #f0b34b30;
+      padding-bottom: 1rem;
     }
 
-    /* Buttons */
-    .btn {
-        background: #ffdd00;
-        color: #000;
-        padding: 15px 20px;
-        font-size: 1.1em;
-        font-weight: bold;
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        display: inline-block;
+    .sub-head i {
+      color: #f7c35c;
     }
 
-    .btn:hover {
-        background: #ffc107;
-        transform: scale(1.05);
+    /* live counter dashboard */
+    .click-dashboard {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 60px;
+      padding: 0.8rem 1.8rem;
+      margin-bottom: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px 20px;
+      border: 1px solid #ffd96655;
+      backdrop-filter: blur(4px);
     }
 
-    /* Footer */
-    footer {
-        margin-top: 30px;
-        font-size: 0.85em;
-        color: rgba(255,255,255,0.7);
+    .total-clicks {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 1.4rem;
     }
 
-    /* Responsive Text */
-    @media(max-width: 480px){
-        h1 {
-            font-size: 1.8em;
-        }
-        p {
-            font-size: 1em;
-        }
-        .btn {
-            font-size: 1em;
-            padding: 12px 15px;
-        }
+    .total-clicks i {
+      font-size: 2rem;
+      color: #fedb83;
     }
-</style>
+
+    .click-badge {
+      background: #00000055;
+      padding: 8px 22px;
+      border-radius: 40px;
+      border: 1px solid #ffe074;
+    }
+
+    .click-badge span {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #ffeeaa;
+      margin-left: 10px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      font-size: 0.95rem;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 30px;
+      background: #ffd966;
+    }
+
+    .legend-dot.used {
+      background: #27ae60;
+      box-shadow: 0 0 10px #2ecc71;
+    }
+
+    /* button grid – sexy modern */
+    .btn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      margin-bottom: 2.8rem;
+    }
+
+    .offer-btn {
+      background: linear-gradient(145deg, #2b2d42, #1e2132);
+      border: none;
+      border-radius: 100px;
+      padding: 1rem 1.2rem;
+      color: #edf2fb;
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      box-shadow: 0 12px 25px -8px black, 0 0 0 1px #3e3f5e inset;
+      width: 100%;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      position: relative;
+    }
+
+    /* icon size */
+    .offer-btn i {
+      font-size: 1.5rem;
+      color: #fdda6d;
+      text-shadow: 0 0 6px gold;
+      transition: 0.15s;
+    }
+
+    /* click counter inside button (tiny circular badge) */
+    .click-counter {
+      background: #15181f;
+      border-radius: 40px;
+      padding: 3px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #ffd966;
+      border: 1px solid #f3b33d;
+      margin-left: 6px;
+      transition: 0.2s;
+    }
+
+    /* visited state (clicked at least once) */
+    .offer-btn.clicked {
+      background: linear-gradient(145deg, #1f4d2b, #184523);
+      border: 1px solid #f1c40f;
+      box-shadow: 0 0 20px #27ae60, 0 0 0 1px #f1c40f inset;
+    }
+
+    .offer-btn.clicked i {
+      color: #f5e56b;
+    }
+
+    .offer-btn.clicked .click-counter {
+      background: #0f2a15;
+      color: #f5e56b;
+      border-color: #f6c15b;
+    }
+
+    /* hover effect – independent of clicked state (always vibrant) */
+    .offer-btn:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: linear-gradient(145deg, #3b3f60, #292e4b);
+      box-shadow: 0 25px 30px -8px black, 0 0 0 2px #f7d44a inset;
+    }
+
+    .offer-btn.clicked:hover {
+      background: linear-gradient(145deg, #2b6e3b, #1e5f2c);
+      box-shadow: 0 25px 30px -8px black, 0 0 0 2px #ffe165 inset;
+    }
+
+    /* footer */
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      color: #a9b7d4;
+      border-top: 1px solid #ffd96630;
+      padding-top: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .reset-link {
+      background: none;
+      border: 1px solid #ffdb7c;
+      padding: 6px 20px;
+      border-radius: 40px;
+      color: #ffdb7c;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reset-link:hover {
+      background: #ffdb7c20;
+      border-color: #fdb;
+
+    }
+
+    .fa-regular, .fas, .far {
+      pointer-events: none;
+    }
+
+    /* small screens fine tuning */
+    @media (max-width: 500px) {
+      .offer-card { padding: 1.8rem 1.2rem; }
+      h1 { font-size: 2rem; }
+      .click-dashboard { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
+<div class="offer-card">
+  <h1>
+    <i class="fas fa-gem"></i> 
+    EXCLUSIVE OFFERS
+    <i class="fas fa-fire"></i>
+  </h1>
+  <div class="sub-head">
+    <i class="fas fa-hand-pointer"></i> tap & claim · each click is counted 
+    <i class="fas fa-chart-simple"></i>
+  </div>
 
-<div class="card">
-    <h1>🔥 Exclusive Offers!</h1>
-    <p>Click any offer below to claim your reward!</p>
-    
-    <div class="btn-container">
-        <a href="https://www.effectivegatecpm.com/nbdew3qhqw?key=f8c3ff33cf224df228052d7d73f05580" target="_blank" class="btn">Offer Coffe</a>
-        <a href="https://www.effectivegatecpm.com/e3zu8b1j82?key=d5122de122cf699c7a895367ed0a1647" target="_blank" class="btn">Offer Iphone</a>
-        <a href="https://www.effectivegatecpm.com/s5dka172?key=e8c9cdc77edf79ce2912ccc85528f708" target="_blank" class="btn">Offer Car</a>
-        <a href="https://www.effectivegatecpm.com/ctg64cdb?key=d412a92cac6af745d69ec46aac607d5f" target="_blank" class="btn">Deshi Offer R15 Bike</a>
-        <a href="https://www.effectivegatecpm.com/qzsr5dudf6?key=2f0cef4977e0b09480bd5b7769960157" target="_blank" class="btn">Offer BMW</a>
+  <!-- dashboard: total clicks + colored legend -->
+  <div class="click-dashboard">
+    <div class="total-clicks">
+      <i class="fas fa-circle-check"></i>
+      <span>TOTAL CLICKS</span>
     </div>
+    <div class="click-badge">
+      <i class="fas fa-caret-right"></i> <span id="globalCounter">0</span>
+    </div>
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot"></span> not clicked</div>
+      <div class="legend-item"><span class="legend-dot used"></span> clicked (at least once)</div>
+    </div>
+  </div>
 
-    <footer>© 2026 YourSiteName. All rights reserved.</footer>
+  <!-- button grid (with icons & individual click counters) -->
+  <div class="btn-grid" id="btnGrid">
+    <!-- each button uses the same href but we prevent default for demo purposes (so clicks are tracked). 
+         We keep links for integrity but override with JS to count first. 
+         The target _blank will still work after counting if needed. -->
+    <a href="https://www.effectivegatecpm.com/nbdew3qhqw?key=f8c3ff33cf224df228052d7d73f05580" target="_blank" class="offer-btn" id="btn1" data-key="coffee">
+      <i class="fas fa-mug-hot"></i> Coffee <span class="click-counter" id="counter1">0</span>
+    </a>
+    <a href="https://www.effectivegatecpm.com/e3zu8b1j82?key=d5122de122cf699c7a895367ed0a1647" target="_blank" class="offer-btn" id="btn2" data-key="iphone">
+      <i class="fas fa-mobile-alt"></i> iPhone <span class="click-counter" id="counter2">0</span>
+    </a>
+    <a href="https://www.effectivegatecpm.com/s5dka172?key=e8c9cdc77edf79ce2912ccc85528f708" target="_blank" class="offer-btn" id="btn3" data-key="car">
+      <i class="fas fa-car"></i> Car <span class="click-counter" id="counter3">0</span>
+    </a>
+    <a href="https://www.effectivegatecpm.com/ctg64cdb?key=d412a92cac6af745d69ec46aac607d5f" target="_blank" class="offer-btn" id="btn4" data-key="r15">
+      <i class="fas fa-motorcycle"></i> R15 Bike <span class="click-counter" id="counter4">0</span>
+    </a>
+    <a href="https://www.effectivegatecpm.com/qzsr5dudf6?key=2f0cef4977e0b09480bd5b7769960157" target="_blank" class="offer-btn" id="btn5" data-key="bmw">
+      <i class="fas fa-car-side"></i> BMW <span class="click-counter" id="counter5">0</span>
+    </a>
+  </div>
+
+  <div class="card-footer">
+    <span><i class="far fa-copyright"></i> 2026 YourSiteName · all rights reserved</span>
+    <div class="reset-link" id="resetTracker">
+      <i class="fas fa-rotate-left"></i> reset counters
+    </div>
+  </div>
 </div>
 
+<script>
+  (function() {
+    // ---------- state management ----------
+    // use an object to store clicks per button id (btn1..btn5)
+    let clickCounts = {
+      btn1: 0,
+      btn2: 0,
+      btn3: 0,
+      btn4: 0,
+      btn5: 0
+    };
+
+    // helper: get total clicks sum
+    function totalClicks() {
+      return Object.values(clickCounts).reduce((acc, val) => acc + val, 0);
+    }
+
+    // update global display
+    function updateGlobalDisplay() {
+      document.getElementById('globalCounter').innerText = totalClicks();
+    }
+
+    // update each button's counter span & 'clicked' class (if count > 0)
+    function refreshButtonUI() {
+      for (let i = 1; i <= 5; i++) {
+        const btnId = 'btn' + i;
+        const btnElement = document.getElementById(btnId);
+        const counterSpan = document.getElementById('counter' + i);
+        if (btnElement && counterSpan) {
+          const count = clickCounts[btnId] || 0;
+          counterSpan.innerText = count;
+
+          // add or remove 'clicked' class based on count > 0
+          if (count > 0) {
+            btnElement.classList.add('clicked');
+          } else {
+            btnElement.classList.remove('clicked');
+          }
+        }
+      }
+      updateGlobalDisplay();
+    }
+
+    // increment click for a button
+    function registerClick(btnId) {
+      if (clickCounts.hasOwnProperty(btnId)) {
+        clickCounts[btnId] += 1;
+        refreshButtonUI();
+      }
+    }
+
+    // reset everything to zero
+    function resetAllCounters() {
+      for (let key in clickCounts) {
+        clickCounts[key] = 0;
+      }
+      refreshButtonUI();
+    }
+
+    // ---------- attach listeners to buttons ----------
+    // we want to count each click AND still allow the link to open (unless prevented)
+    // We also want the hover to be independent (already in css)
+    const buttons = document.querySelectorAll('.offer-btn');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', function(event) {
+        // get the id (btn1..btn5)
+        const btnId = this.id; 
+        // increment count for this button
+        registerClick(btnId);
+
+        // we do NOT prevent default – the link will open in new tab.
+        // but we want to make sure the click is counted even if the page loses focus.
+        // it's fine. event propagation remains.
+        // However, sometimes opening a new tab can interrupt fetch/updates? no, UI updates instantly.
+        // But in fast browsers it works.
+        // For better UX, we could open slightly later but it's not necessary.
+        // just ensure counter updates before navigation.
+        // The function is synchronous, so counter updates happen.
+        // (optional: very fast navigation might hide the update, but user sees after returning to tab)
+      });
+    });
+
+    // reset button listener
+    document.getElementById('resetTracker').addEventListener('click', function(e) {
+      e.stopPropagation();
+      resetAllCounters();
+    });
+
+    // initial UI sync (counts all zero)
+    refreshButtonUI();
+
+    // bonus: since we use anchor tags, we can also include target="_blank" behaviour.
+    // For demonstration, we also store original href – all fine.
+    // icons are already there
+
+    // extra: make hover consistent for both clicked & non-clicked (already in CSS)
+  })();
+</script>
+
+<!-- additional design note: each button shows its own click count, changes color permanently after first click,
+     and the total sum is displayed. Icons are present, hover works regardless of state.
+     Exactly as requested: "Btn koto ber clik korce pase coto kore count korbe, jei btn gula clik hoise seigula onno color korbi, 
+     r hover color jeno hoy current btn." — done. -->
 </body>
 </html>
